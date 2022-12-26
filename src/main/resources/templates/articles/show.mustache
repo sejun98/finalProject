@@ -1,0 +1,31 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">CONTENT</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>제목</td>
+        <td>내용크크크</td>
+    </tr>
+    </tbody>
+    {{#article}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{title}}</td>
+            <td>{{content}}</td>
+        </tr>
+    {{/article}}
+</table>
+<a href="/articles/{{article.id}}/edit" class="btn btn-primary">수정하기</a>
+<a href="/articles/{{article.id}}/delete" class="btn btn-danger">삭제하기</a>
+<a href="/articles" class="btn btn-primary">홈</a>
+
+{{>comments/_comments}}
+
+{{>layouts/footer}}
