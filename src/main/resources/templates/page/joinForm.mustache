@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="/css/login.css?after">
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+<script>
+    function check_pw(){
+
+        var pw = document.getElementById('id_password1').value;
+        var check_SC = 0;
+
+        if(pw.length < 6 || pw.length>16){
+            window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+            document.getElementById('id_password1').value='';
+        }
+        for(var i=0;i<SC.length;i++){
+            if(pw.indexOf(SC[i]) != -1){
+                check_SC = 1;
+            }
+        }
+        if(document.getElementById('id_password1').value !='' && document.getElementById('id_password2').value!=''){0
+            if(document.getElementById('id_password1').value==document.getElementById('id_password2').value){
+                document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+                document.getElementById('check').style.color='blue';
+            }
+            else{
+                document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+                document.getElementById('check').style.color='red';
+            }
+        }
+    }
+</script>
+<body>
+{{>layouts/header}}
+<article class="sign-article">
+    <h1 class="title">아이디로 회원가입</h1>
+    <form class="signup" id="signup_form" action="/join" method="POST">
+        <div class="icon-div">
+            <img src="../files/css/username.svg" alt="아이디">
+            <input type="text" name="username" placeholder="아이디" required="" id="id_username"><br/>
+        </div>
+        <div class="icon-div">
+            <img src="../files/css/password.svg" alt="비밀번호">
+            <input type="password" name="password" placeholder="비밀번호 (최소 6자리 이상 입력)" onchange="check_pw()" autocomplete="new-password" required="" id="id_password1"><br/>
+        </div>
+        <div class="icon-div">
+            <img src="../files/css/password.svg" alt="비밀번호확인">
+            <input type="password" name="password_confirm" placeholder="비밀번호 (확인)" onchange="check_pw()" autocomplete="new-password" required="" id="id_password2">&nbsp;<span id="check"></span><br />
+        </div>
+        <div class="icon-div">
+            <img src="../files/css/username.svg" alt="닉네임">
+            <input type="text" name="nickname" placeholder="닉네임" required="" id="id_nickname"><br/>
+        </div>
+        <div class="icon-div">
+            <img src="../files/css/username.svg" alt="이름">
+            <input type="text" name="name" placeholder="이름" required="" id="id_name"><br/>
+        </div>
+        <div class="icon-div1">
+            <img src="../files/css/calender.svg" alt="생일">
+            <input type="date" name="dob" placeholder="생일" required="" id="id_dob"><br/>
+        </div>
+        <div class="icon-div">
+            <img src="../files/css/email.svg" alt="이메일">
+            <input type="email" name="email" placeholder="이메일" autocomplete="email" required="" id="id_email"><br/>
+        </div>
+        <div class="icon-div2">
+            <img src="../files/css/phnum.svg" alt="전화번호">
+            <input type="text" name="phnum" placeholder="전화번호" required="" id="id_phnum"><br/>
+        </div>
+        <div class="select">
+            <input type="radio" id="select" name="gender" value="M" required=""><label for="select">남성</label>
+            <input type="radio" id="select2" name="gender" value="F" required=""><label for="select2">여성</label>
+        </div>
+        <div class="checkbox-div">
+            <input type="checkbox" name="terms_and_policy_agreement" required="" id="id_terms_and_policy_agreement" checked="">
+
+
+
+            <a href="#">이용약관 </a>
+            <span>및 </span>
+            <a href="#">개인정보처리방침에</a>
+            <span>에 동의합니다</span>
+
+        </div>
+        <button id="signup-submit" type="submit" class="btn-link disabled">회원가입</button>
+    </form>
+    <div class="or-div" style="user-select:auto;">
+        <span>또는</span>
+        <div></div>
+    </div>
+    <a class="google-login" href="#">
+        <img class="google" src="../files/css/google.svg" alt="구글 계정으로 시작하기">
+        구글 계정으로 시작하기
+    </a>
+
+    <p class="already-have">이미 계정이 있나요?</p>
+    <a class="link" href="">로그인</a>
+</article>
+</body>
+</html>

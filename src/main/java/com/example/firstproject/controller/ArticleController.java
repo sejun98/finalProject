@@ -2,30 +2,52 @@ package com.example.firstproject.controller;
 
 import com.example.firstproject.DTO.ArticleForm;
 import com.example.firstproject.DTO.CommentDto;
+import com.example.firstproject.DTO.PlaceDto;
 import com.example.firstproject.entity.Article;
+import com.example.firstproject.entity.Place;
 import com.example.firstproject.repository.ArticleRepository;
+import com.example.firstproject.repository.PlaceRepository;
+import com.example.firstproject.service.ArticleService;
+import com.example.firstproject.service.CarcampingService;
 import com.example.firstproject.service.CommentService;
 import lombok.Getter;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 @Slf4j // 로깅을 위한 골뱅이(어노테이션)
 public class ArticleController {
 
     @Autowired
+    private CarcampingService carcampingService;
+
+    @Autowired
+    private ArticleService articleService;
+
+    @Autowired
     private ArticleRepository articleRepository;
+
+    @Autowired
+    private PlaceRepository placeRepository;
 
     @Autowired
     private CommentService commentService;
@@ -35,40 +57,119 @@ public class ArticleController {
         return "articles/new";
     }
 
+    @GetMapping("/index")
+    public String index () {
+        return "page/index";
+    }
+    @GetMapping("/loginform")
+    public String loginFrom() {
+        return "page/loginForm";
+    }
+    @GetMapping("/joinform")
+    public String joinForm() {
+        return "page/joinForm";
+    }
+    // 장소 리스트 저장폼
+    @GetMapping("/state/write")
+    public String stateWriteForm() {
+        return "page/statewrite";
+    }
+
+    // 장소 리스트 저장
+    @PostMapping("/state/writepro")
+    public String stateWritePro(PlaceDto placeDto, Model model, MultipartFile file) throws IOException { //폼에서 날아온게 여기 들어감 전에는 String title 이런식으로 받았는데
+        Place place = placeDto.toEntity();
+        Place saved = placeRepository.save(place);
+
+        String projectPath = System.getProperty("user.dir")+"/src/main/resources/static/files";
+
+        UUID uuid = UUID.randomUUID();
+
+        String fileName = uuid + "_" + file.getOriginalFilename();
+
+        File saveFile = new File(projectPath, fileName);
+
+        file.transferTo(saveFile);
+
+        place.setFilename(fileName);
+        place.setFilepath("/files/"+ fileName);
+
+        placeRepository.save(place);
+
+
+        model.addAttribute("message","글 작성이완료되었습니다");
+        model.addAttribute("searchUrl","/articles");
+        return "redirect:/state/" + saved.getId();
+    }
+
+    // 장소 리스트 페이지
+    @GetMapping("/state/list")
+    public String stateList(String searchKeyword, Model model,
+                            @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
+                            Pageable pageable) {
+
+        Page<Place> list = null;
+
+        if (searchKeyword == null){
+            list = carcampingService.stateList(pageable);
+        }else {
+            list = carcampingService.stateSearchList2(searchKeyword, pageable);
+        }
+
+        int nowPage = list.getPageable().getPageNumber() + 1 ;
+        int startPage = Math.max(nowPage-4,1) ;
+        int endPage = Math.min(nowPage + 5,list.getTotalPages());
+
+        List<Place> PlaceEntityList = placeRepository.findAll();
+        model.addAttribute("PlaceList", PlaceEntityList);
+
+        model.addAttribute("list",list);
+        model.addAttribute("nowPage",nowPage);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+
+        return "page/stateList";
+    }
+
+    // stateView 페이지
+    @GetMapping("/state/{id}")
+    public String stateShow(@PathVariable Long id, Model model) {
+        Place place = placeRepository.findById(id).orElse(null);
+        List<CommentDto> commentDtos = commentService.comments(id);
+        model.addAttribute("place", place);
+        model.addAttribute("commentDtos", commentDtos);
+        return "page/stateView";
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 생성
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form, Long id) {
-        // form에서 보낸 값이 DTO로 보내줬고 1.번 처럼 DTo를 Entity로 변환한다음 repository에
         log.info(form.toString()); // 값이 DTO로 담겨졌고
-        // 1. DTO -> entity로 변환
         Article article = form.toEntity();
-        log.info(article.toString()); // DTO가 Entity로 변환되었으며
-        // 2. Repository에게 Entity를 DB안에 저장
         Article saved = articleRepository.save(article);
-        log.info(saved.toString()); // 위 Entity를 Repsoitory에게 저장하라고 시켰더니 결과가 되는 Entity가 반환이 되었다.
         return "redirect:/articles/" + saved.getId();
     }
 
+    // 뷰
     @GetMapping("/articles/{id}") // {id}값을 받았을때 변동가능 아래 @와 id와 같이쓰a
     public String show(@PathVariable Long id, Model model) {
-        log.info("id=" + id);
-        // 1 : id로 데이터를 가져옴
         Article articeEntity = articleRepository.findById(id).orElse(null); // 아이디값을 찾았는데 없으면 Null로 반환해라
         List<CommentDto> commentDtos = commentService.comments(id);
-    //        2 : 가져온 데이터를 모델에 등록!
         model.addAttribute("article", articeEntity);
         model.addAttribute("commentDtos", commentDtos);
-    //        3 : 보여줄 페이지를 설정!
         return "articles/show";
     }
-
+    // 리스트
     @GetMapping("/articles")
-    public String index(Model model) {
+    public String placeList(Model model) {
         // 1. 모든 아티클을 가져온다
         List<Article> articlesEntityList = articleRepository.findAll();
         // 2. 가져온 아티클 묶음을 뷰로 전달!
         model.addAttribute("articleList", articlesEntityList);
         // 3. 뷰 페이지를 설정!
-        return "articles/index";
+        return "articles/placeList";
     }
 
     @GetMapping("/articles/{id}/edit")

@@ -1,0 +1,644 @@
+@charset "UTF-8";
+@keyframes spinner{
+    0% {transform:rotate(0deg)}
+    100% {transform:rotate(360deg)}
+}
+
+/* 스크롤 스르륵 설정*/
+
+html {
+    scroll-behavior: smooth;
+
+}
+.header_box {
+    width: 100%; height: 115px;
+    background-color: #f6f6f6;
+    margin-bottom: 15px;
+}
+.header_boxin {
+    margin: 0 auto;
+    vertical-align:middle;
+    width: 1465px; height: 100%;
+}
+.header_boxin > img {
+    margin-top: 20px;
+    margin-left: 50px;
+    float: left;
+}
+.header_ul {
+    position: absolute;
+    top: 45px;
+    right: 240px;
+}
+.header_ul > li  {
+
+    list-style-type: none; float: left;
+    margin-left: 110px;
+    font-size: 24px;
+    font-weight:500;
+}
+.header_ul > li > a {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+}
+.header_ul > li > a:hover {
+    font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+
+    /*navigation css*/
+    *{padding:0; margin: 0; list-style: none;}
+    body {padding: 30px;}
+    .tab{padding: 30px;}
+    .tab ul{display: flex; height:72px; border-bottom:1px solid rgb(242, 17, 76);}
+    .tab ul li {flex:1;}
+    .tab ul li:first-child a {
+        border-left:1px solid #ddd;}
+    .tab ul li a {
+        display: block; height: 72px; border:1px solid #ddd; border-left: none; border-bottom:none;
+        font-size:14px; color: rgb(230, 28, 81);
+        text-align: center; line-height: 72px; text-decoration: none; }
+    .tab ul li a.on{
+        position: relative; height: 71px; border-color: rgb(242, 17, 76); /*border-top-width: 2px;*/
+        line-height: 70px; border-bottom: 1px solid #fff;
+    }
+    .tab ul li a.on:before {content: ""; position: absolute; left:-1px; top:-2px; width: 1px;
+        height: 100%; background: rgb(242, 17, 76); border-top:2px solid rgb(242, 17, 76);}
+
+
+    /*  right comment는 아래 코드로 대체 */
+    /*   .right .comment {
+            display: block;
+            position: relative;
+            margin-top: 16px;
+            padding: 26px 24px;
+            background: rgb(250, 250, 250);
+        }
+
+            .top > right > comment {
+            width: 424px;
+            height: 135px;
+            background-color: #b9b9b9;
+        }
+
+        .top > right > comment > clamp {
+            width: 376px;
+            height: 652px;
+            color: gray;
+        }*/
+    .right .comment {
+        display: block;
+        position: relative;
+        margin-top: 16px;
+        padding: 26px 24px;
+        background: rgb(250, 250, 250)
+    }
+
+    .right .comment strong {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.87)
+    }
+
+    /* 더보기
+     .right .comment button{position:absolute;top:24px;right:24px;background:none;border:none;font-size:16px;color:rgb(0,121,107)}
+     */
+    .right .comment div {
+        display: block;
+        overflow: hidden;
+        height: auto;
+        font-size: 16px;
+        line-height: 26px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .right .comment .clamp {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        height: 52px;
+        text-overflow: ellipsis
+    }
+
+    div {
+        display: block;
+    }
+
+
+    .detail {
+        width: 1024px;
+
+        /* background-color: aquamarine*/
+    }
+    /*
+        div.tab {
+            width: 1024px;
+            height: 72px;
+       !*     background-color: bisque;*!
+            margin: 0 auto;
+            margin-top: 38px;
+            clear: both;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        div.tab > on {
+
+            height: 72px;
+        }*/
+
+    div.tab > tab_review {
+
+        height: 72px;
+    }
+
+    section.default_info {
+        width: 962px;
+    }
+
+    .default_info > tab {
+        width: 962px;
+        height: 80px;
+    }
+
+    .comment > button {
+        width: 41.48px;
+        height: 19px;
+        /*        color: seagreen;*/
+    }
+
+    .right .info {
+        padding: 18px 20px
+    }
+
+    .right .info .score_cnt {
+        position: relative;
+        clear: both;
+        margin: 7px 0 0 0;
+        font-size: 15px;
+        color: rgb(255, 167, 38)
+    }
+
+    .right .info .score_cnt span {
+        display: inline-block;
+        position: relative;
+        top: -1px;
+        height: 15px;
+        margin-right: 3px;
+        padding: 1px 2px;
+        border-radius: 4px;
+        background: rgb(255, 167, 38);;
+        font-size: 12px;
+        line-height: 15px;
+        color: #fff
+    }
+
+    .right .info .score_cnt b {
+        font-weight: normal;
+        color: rgba(0, 0, 0, 0.38)
+    }
+
+    .right .info .score_cnt .call {
+        display: inline-block;
+        position: absolute;
+        top: -10px;
+        right: 0;
+        width: 48px;
+        height: 34px;
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
+        background: url('//image.goodchoice.kr/images/web_v3/ico_call.png') right 50% no-repeat;
+        background-size: 24px auto;
+        text-indent: -9999px
+    }
+
+    .right .info .address {
+        padding-top: 6px;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .right .info .benefit_wrap {
+        overflow: hidden;
+        margin-right: 50px
+    }
+
+    .right .info .benefit_wrap span {
+        float: left;
+        display: inline-block;
+        margin-top: 7px;
+        padding: 3px 2px 2px 2px;
+        background: #f4f4f4;
+        line-height: normal;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .right .info .benefit_wrap span:last-child em {
+        display: none
+    }
+
+    /*  코멘트 주석 처리 한 이유가 뭐냐
+
+        .right .comment {
+            display: none
+        }*/
+    /*tab*/
+    .tab {
+        clear: both;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+    }
+
+    .tab button {
+        float: left;
+        width: 33.3%;
+        height: 48px;
+        border: none;
+        border-bottom: 2px solid #fff;
+        background: none;
+        font-size: 14px;
+    }
+
+    .tab button:nth-child(2) {
+        width: 33.4%
+    }
+
+    /*  .tab .on {
+          border-bottom: 2px solid rgb(242, 17, 76);
+          font-weight: bold;
+          color: rgb(230, 28, 81);
+      }*/
+
+
+    /*detail.info*/
+    .detail_info .btn_align {
+        margin: 0 16px;
+    }
+
+    .detail_info button {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 56px;
+        padding: 0 16px;
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fff;
+        font-size: 16px;
+        line-height: 56px;
+        color: rgba(0, 0, 0, 0.87);
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .detail_info button:first-child {
+        border-top: none;
+    }
+
+    .detail_info button:after {
+        display: inline-block;
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 21px;
+        width: 12px;
+        height: 8px;
+        margin-top: -4px;
+        background: #fff url('//image.goodchoice.kr/images/web_v3/ico_arr_3.png') 0 0 no-repeat;
+        background-size: 12px auto;
+    }
+
+    .detail_info .on {
+        border-bottom: none;
+    }
+
+    .detail_info .on:after {
+        background: #fff url('//image.goodchoice.kr/images/web_v3/ico_arr_3.png') 0 -8px no-repeat;
+        background-size: 12px auto;
+    }
+
+    .detail_info section {
+        display: none;
+        overflow: hidden;
+        margin: 0 16px 11px 16px;
+        padding: 0 16px;
+        border-radius: 4px;
+        background: rgb(245, 245, 245)
+    }
+
+    .detail_info .default_info,
+    .detail_info .seller_info {
+        padding-bottom: 32px
+    }
+
+    .detail_info .default_info strong,
+    .detail_info .seller_info strong {
+        display: block;
+        margin: 30px 0 10px 0;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .detail_info .default_info h3,
+    .detail_info .seller_info h3 {
+        display: block;
+        margin: 30px 0 10px 0;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .detail_info .default_info p,
+    .detail_info .seller_info p {
+        font-size: 15px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .detail_info .default_info .map {
+        width: 100%;
+        height: 160px;
+        margin-top: 30px;
+        background: #e8e8e8
+    }
+
+    .detail_info .default_info ul,
+    .detail_info .seller_info ul {
+        font-size: 15px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .detail_info .default_info ul li,
+    .detail_info .seller_info ul li {
+        padding-left: 14px;
+        background: url('//image.goodchoice.kr/images/web_v3/ico_bul_3.png') -1px 0 no-repeat;
+        background-size: 12px auto
+    }
+
+    .detail_info .default_info ul li img {
+        width: 100%
+    }
+
+    /* 리뷰 */
+    .review .score_top {
+        padding: 31px 0;
+        text-align: center
+    }
+
+    .review .score_top strong {
+        display: block;
+        padding: 0 0 5px 0;
+        font-size: 20px;
+        text-align: center
+    }
+
+    .review .score_top p {
+        margin-top: 10px;
+        font-size: 14px
+    }
+
+    .review .score_top p b {
+        font-size: 16px
+    }
+
+    .review .score_top p span {
+        display: inline-block;
+        width: 32px;
+        color: rgba(0, 0, 0, 0.08)
+    }
+
+    .review .score_wrap {
+        display: inline-block;
+        overflow: hidden;
+        text-align: center
+    }
+
+    .score_star {
+        display: inline-block;
+        width: 120px;
+        height: 24px;
+        background: url('//image.goodchoice.kr/images/web_v3/bg_score.png') 0 0 no-repeat;
+        background-size: 120px auto
+    }
+
+    .score_star.star_50 {
+        background-position: 0 0
+    }
+
+    .score_star.star_45 {
+        background-position: 0 -24.5px
+    }
+
+    .score_star.star_40 {
+        background-position: 0 -49px
+    }
+
+    .score_star.star_35 {
+        background-position: 0 -73.5px
+    }
+
+    .score_star.star_30 {
+        background-position: 0 -98px
+    }
+
+    .score_star.star_25 {
+        background-position: 0 -122.5px
+    }
+
+    .score_star.star_20 {
+        background-position: 0 -147px
+    }
+
+    .score_star.star_15 {
+        background-position: 0 -171.5px
+    }
+
+    .score_star.star_10 {
+        background-position: 0 -196px
+    }
+
+    .score_star.star_05 {
+        background-position: 0 -220.5px
+    }
+
+    .score_star.star_00 {
+        background-position: 0 -245px
+    }
+
+
+    .score_wrap_sm .score_star.star_50 {
+        background-position: 0 0
+    }
+
+    .score_wrap_sm .score_star.star_45 {
+        background-position: 0 -16px
+    }
+
+    .score_wrap_sm .score_star.star_40 {
+        background-position: 0 -32px
+    }
+
+    .score_wrap_sm .score_star.star_35 {
+        background-position: 0 -48px
+    }
+
+    .score_wrap_sm .score_star.star_30 {
+        background-position: 0 -64px
+    }
+
+    .score_wrap_sm .score_star.star_25 {
+        background-position: 0 -80px
+    }
+
+    .score_wrap_sm .score_star.star_20 {
+        background-position: 0 -96px
+    }
+
+    .score_wrap_sm .score_star.star_15 {
+        background-position: 0 -113px
+    }
+
+    .score_wrap_sm .score_star.star_10 {
+        background-position: 0 -129px
+    }
+
+    .score_wrap_sm .score_star.star_05 {
+        background-position: 0 -145px
+    }
+
+    .score_wrap_sm .score_star.star_00 {
+        background-position: 0 -162px
+    }
+    .review_box {
+        margin: 0 auto;
+        width: 1024px;
+
+    }
+    .review ul li {
+        position: relative;
+        padding: 27px 16px 16px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        width: 1024px;
+    }
+
+    .review .guest .pic img{
+        width:40px;
+        height:40px
+    }
+    .review .guest .best_review{
+        display:block;
+        width:67px;
+        height:16px;
+        margin:0 0 6px 64px;
+        font-size:0px;
+        text-indent:-999px;
+        background: url(//static.goodchoice.kr/images/web_v3/img_bestreview_badge.svg) 0 0 no-repeat;
+        background-size: 100%;
+    }
+
+    .review .guest .best_review {
+        display: block;
+        width: 67px;
+        height: 16px;
+        margin: 0 0 6px 64px;
+        font-size: 0px;
+        text-indent: -999px;
+        background: url(//static.goodchoice.kr/images/web_v3/img_bestreview_badge.svg) 0 0 no-repeat;
+        background-size: 100%;
+    }
+
+    .review .guest strong {
+        display: block;
+        padding: 0 16px 2px 64px;
+        font-size: 16px;
+        line-height: normal
+    }
+
+    .review .boss {
+        position: relative;
+        margin: 12px 0 0 64px;
+        padding: 19px 16px 15px 50px;
+        border-radius: 4px;
+        background: rgb(245, 245, 245)
+    }
+
+
+    .right .info > .build_badge {
+        padding: 1px;
+        vertical-align: top;
+    }
+
+    /* 상세 Detail_page  */
+    .detail {
+        width: 1024px;
+        margin: 112px auto 0 auto
+    }
+
+    .detail .top {
+        overflow: hidden;
+        padding: 0 31px
+    }
+
+    .detail .top .left {
+        float: left;
+        width: 490px
+    }
+    .left > img {
+        width: 490px;
+        border-radius: 9px;
+    }
+
+    .detail .top .right {
+        float: right;
+        width: 424px
+    }
+
+    /*right .info */
+    .right .info {
+        padding: 0
+    }
+
+    .right .info .badge {
+        display: block;
+        top: 0
+    }
+
+    .right .info .badge span {
+        display: inline-block;
+        float: left;
+        height: 18px;
+        padding: 0 3px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 18px
+    }
+
+    /*.right .info strong{display:block;margin-top:9px;font-size:28px}*/
+    .right .info h2 {
+        display: inline;
+        margin: 9px 0 0 0;
+        font-size: 28px
+    }
+
+    .right .info .score_cnt {
+        position: relative;
+        clear: both;
+        margin: 9px 0 6px 0;
+        font-size: 18px
+    }
+
+    .right .info .score_cnt span {
+        display: inline-block;
+        position: relative;
+        top: -3px;
+        height: 18px;
+        margin-right: 7px;
+        padding: 0 4px;
+        border-radius: 4px;
+        background: rgb(255, 167, 38);
+        font-size: 14px;
+        line-height: 17px;
+        color: #fff
+    }
+}

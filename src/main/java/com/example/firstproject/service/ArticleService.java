@@ -1,13 +1,16 @@
 package com.example.firstproject.service;
 
 import com.example.firstproject.DTO.ArticleForm;
+import com.example.firstproject.DTO.PlaceDto;
 import com.example.firstproject.entity.Article;
+import com.example.firstproject.entity.Place;
 import com.example.firstproject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 @Service

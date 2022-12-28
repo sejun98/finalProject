@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>로그인페이지</title>
+    <link rel="stylesheet" href="/css/login.css?after">
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+<body>
+{{>layouts/header}}
+<article class="sign-article">
+    <h1 class="title">반갑습니다!</h1>
+    <form class="login" action="/login" method="POST">
+        <div div class="icon-div">
+            <img src="/img/userman.svg" alt="아이디" style="width:25px">
+            <input type="text" name="username" placeholder="아이디" autocomplete="email" required="" id="id_login"/><br />
+        </div>
+        <div class="icon-div">
+            <img src="/img/key.svg" alt="비밀번호" style="width:25px">
+            <input type="password" name="password" placeholder="비밀번호" autocomplete="current-password" required="" id="id_password"/><br />
+        </div>
+        <div class="checkbox-div">
+            <input type="checkbox" name="remember" id="id_remember" checked="">
+            <label for="id_remember">로그인 상태 유지</label>
+            <a class="secondaryAction" href="#">비밀번호찾기</a>
+        </div>
+        <button id="signin-submit" class="primaryAction btn-link disabled" type="submit">로그인</button>
+    </form>
+    <div class="or-div" style="user-select:auto;">
+        <span>또는</span>
+        <div></div>
+    </div>
+    <a class="google-login" href="#">
+        <img class="google" src="/img/google.png" alt="구글 계정으로 시작하기">
+        구글 계정으로 시작하기
+    </a>
+
+    <p class="already-have">아직 계정이 없나요?</p>
+    <a class="link" href="/joinform">회원가입</a>
+</article>
+</body>
+</html>

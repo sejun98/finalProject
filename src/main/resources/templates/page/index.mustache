@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="/css/index.css?after" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차박할래?</title>
+</head>
+
+<body>
+{{>layouts/header}}
+
+<!--<a th:href="@{/logout}">로그아웃</a><br/>-->
+<!--<a th:href="@{/state/list}">지역별</a><a th:href="@{/state/list/theme}">테마별</a>-->
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/index_main1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/index_main2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/index_main3.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>CarcamPing</h5>
+                <p>is My Life.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<div class="maincontent">
+    <div>
+        <span class="font-uh maintag"><img src="img/전구.png" alt="전구"> 캠핑 필수템!!</span>
+        <img src="img/index_06.jpg" alt="캠핑용품">
+        <p class="font-uh font-rigth">더보기 -></p>
+    </div>
+
+    <div class="campingteam">
+        <span class="font-uh maintag"><img src="img/전구.png" alt="전구"> 차박 장소 리뷰 ~.~</span>
+        <ul class="reviewbox-ul">
+            <li class="reviewbox">
+                <img src="img/index_main2.jpg" alt="">
+                <p class="review-title">가평 빠지</p>
+                <p class="review-content">야외에서 숙식을 해결하는 행위. 하나의 레저로 즐기는 경우가 많다. 대한민국에서도 많은 사람들이 캠핑을 즐기며 산이건 바다건 캠핑장이 하나씩은 꼭 있는 것을 볼 수 있다.
+                </p>
+            </li>
+            <li class="reviewbox">
+                <img src="img/index_main2.jpg" alt="">
+                <p class="review-title">몽산포오션캠핑장 충남</p>
+                <p class="review-content">야외에서 숙식을 해결하는 행위. 하나의 레저로 즐기는 경우가 많다. 대한민국에서도 많은 사람들이 캠핑을 즐기며 산이건 바다건 캠핑장이 하나씩은 꼭 있는 것을 볼 수 있다.
+                </p>
+            </li>
+            <li class="reviewbox">
+                <img src="img/index_main2.jpg" alt="">
+                <p class="review-title">임진강 주상절리 경기 연천군</p>
+                <p class="review-content">야외에서 숙식을 해결하는 행위. 하나의 레저로 즐기는 경우가 많다. 대한민국에서도 많은 사람들이 캠핑을 즐기며 산이건 바다건 캠핑장이 하나씩은 꼭 있는 것을 볼 수 있다.
+
+                </p>
+            </li>
+        </ul>
+        <p class="font-uh font-rigth df">더보기 -></p>
+    </div>
+</div>
+
+
+</body>
+</html>

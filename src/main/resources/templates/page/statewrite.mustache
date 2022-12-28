@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 등록</title>
+</head>
+<style>
+    .layout {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    .layout .text, textarea{
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+    .layout textarea {
+        min-height: 200px;
+    }
+</style>
+<body>
+<div class="layout">
+    <form action="/state/writepro" method="post" enctype="multipart/form-data">
+        <input type="text" name="titleplace" class="text" placeholder="제목">
+        <textarea name="content" placeholder="내용"></textarea>
+        <input type="text" name="address" class="text" placeholder="주소">
+        <input type="text" name="benefit" class="text" placeholder="사장님 한마디"><br><br>
+        <div>
+            테마 선택 :
+            <input type="radio" name="theme" value="mountain" checked> 산
+            <input type="radio" name="theme" value="ocean"> 바다
+            <input type="radio" name="theme" value="river"> 강
+        </div>
+        <br>
+        <select name="state" id="">
+            <option value=""> \\ 지역을 선택해주세요. // </option>
+            <option value="seoul" name="searchKeyword">서울</option>
+            <option value="busan" name="searchKeyword">부산</option>
+            <option value="daegu" name="searchKeyword">대구</option>
+            <option value="incheon" name="searchKeyword">인천</option>
+            <option value="gwangju" name="searchKeyword">광주</option>
+            <option value="daejeon" name="searchKeyword">대전</option>
+            <option value="ulsan" name="searchKeyword">울산</option>
+            <option value="gyeonggido" name="searchKeyword">경기도</option>
+            <option value="gangwondo" name="searchKeyword">강원도</option>
+            <option value="chungcheongbukdo" name="searchKeyword">충청북도</option>
+            <option value="chungcheongnamdo" name="searchKeyword">충청남도</option>
+            <option value="jeollabukdo" name="searchKeyword">전라북도</option>
+            <option value="jeollanamdo" name="searchKeyword">전라남도</option>
+            <option value="gyeongsangbukdo" name="searchKeyword">경상북도</option>
+            <option value="gyeongsangnamdo" name="searchKeyword">경상남도</option>
+            <option value="jejudo" name="searchKeyword">제주도</option>
+        </select>
+        <input type="file" name="file"><br><br>
+        <button type="submit">작성</button>
+
+        <p><a href="/state/list">목록으로 돌아가기</a></p>
+    </form>
+</div>
+</body>
+</html>

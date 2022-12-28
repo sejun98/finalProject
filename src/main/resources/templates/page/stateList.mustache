@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/stateList.css?after">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>게시글리스트</title>
+</head>
+<body>
+    {{>layouts/header}}
+<main class="page">
+    <article class="filter">
+        <form action="/state/list" method="get">
+            <center><h4 class="filter-header">지역별 검색</h4></center>
+            <input type="radio" name="searchKeyword" value="">전체<br>
+            <input type="radio" name="searchKeyword" value="seoul">서울<br>
+            <input type="radio" name="searchKeyword" value="busan">부산<br>
+            <input type="radio" name="searchKeyword" value="daegu">대구<br>
+            <input type="radio" name="searchKeyword" value="incheon">인천<br>
+            <input type="radio" name="searchKeyword" value="gwangju">광주<br>
+            <input type="radio" name="searchKeyword" value="daejeon">대전<br>
+            <input type="radio" name="searchKeyword" value="ulsan">울산<br>
+            <input type="radio" name="searchKeyword" value="gyeonggido">경기도<br>
+            <input type="radio" name="searchKeyword" value="gangwondo">강원도<br>
+            <input type="radio" name="searchKeyword" value="chungcheongbukdo">충청북도<br>
+            <input type="radio" name="searchKeyword" value="chungcheongnamdo">충청남도<br>
+            <input type="radio" name="searchKeyword" value="jeollabukdo">전라북도<br>
+            <input type="radio" name="searchKeyword" value="jeollanamdo">전라남도<br>
+            <input type="radio" name="searchKeyword" value="gyeongsangbukdo">경상북도<br>
+            <input type="radio" name="searchKeyword" value="gyeongsangnamdo">경상남도<br>
+            <input type="radio" name="searchKeyword" value="jejudo">제주도<br>
+            <input type="text" name="searchKeyword">
+            <center>
+                <button type="submit" style="width: 99% ; height:25px ; margin-bottom: 5px;">검색</button>
+            </center>
+        </form>
+    </article>
+
+    <article class="list_box">
+        <section class="state_list">
+            {{#PlaceList}}
+            <a href="/state/{{id}}">
+                <div class="stateBox">
+                    <tr>
+                        <td>
+                            <img class="imgSize" src="{{filepath}}" alt="img">
+                            <div class="imgTextTitle">{{titleplace}}</div>
+                            <div class="imgTextContent">{{content}}</div>
+                        </td>
+                    </tr>
+                </div>
+            </a>
+            <br>
+        {{/PlaceList}}
+        </section>
+    </article>
+    <footer style="text-align: right;">
+        <a href="/state/write">글작성</a>
+    </footer>
+</main>
+</body>
+</html>

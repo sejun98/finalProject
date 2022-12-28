@@ -1,0 +1,439 @@
+/* Login page */
+.welcome {
+  color: #222;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.google-login {
+  background-color: #ffffff;
+  border: solid 1px #ebebeb;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 32px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.google {
+  height: 34px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin-right: 8px;
+  width: 34px;
+}
+
+.sign-article,
+.account-div {
+  border: solid 1px #ddd;
+  border-radius: 9px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 44px auto 0 auto;
+  max-width: 656px;
+  padding: 56px 80px;
+}
+
+.sign-article {
+  margin-top: 159px !important;
+}
+
+#id_login,
+#id_email,
+#id_name,
+#id_password,
+#id_password1,
+#id_password2,
+#id_username,
+#id_nickname,
+#id_dob,
+#id_gender,
+#id_phnum {
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto 12px auto;
+  padding: 16px 16px 16px 56px;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+#id_login::-webkit-input-placeholder,
+#id_email::-webkit-input-placeholder,
+#id_name::-webkit-input-placeholder,
+#id_password::-webkit-input-placeholder,
+#id_password1::-webkit-input-placeholder,
+#id_password2::-webkit-input-placeholder,
+#id_username::-webkit-input-placeholder,
+#id_nickname::-webkit-input-placeholder,
+#id_dob::-webkit-input-placeholder,
+#id_gender::-webkit-input-placeholder,
+#id_gender1::-webkit-input-placeholder,
+#id_phnum::-webkit-input-placeholder {
+  color: #777;
+  font-size: 16px;
+}
+
+#id_login::-moz-placeholder,
+#id_email::-moz-placeholder,
+#id_name::-moz-placeholder,
+#id_password::-moz-placeholder,
+#id_password1::-moz-placeholder,
+#id_password2::-moz-placeholder,
+#id_username::-moz-placeholder,
+#id_nickname::-moz-placeholder,
+#id_dob::-moz-placeholder,
+#id_gender::-moz-placeholder,
+#id_gender1::-moz-placeholder,
+#id_phnum::-moz-placeholder {
+  color: #777;
+  font-size: 16px;
+}
+
+#id_login:-ms-input-placeholder,
+#id_email:-ms-input-placeholder,
+#id_name:-ms-input-placeholder,
+#id_password:-ms-input-placeholder,
+#id_password1:-ms-input-placeholder,
+#id_password2:-ms-input-placeholder,
+#id_username:-ms-input-placeholder,
+#id_nickname:-ms-input-placeholder,
+#id_dob:-ms-input-placeholder,
+#id_gender:-ms-input-placeholder,
+#id_gender1:-ms-input-placeholder,
+#id_phnum:-ms-input-placeholder {
+  color: #777;
+  font-size: 16px;
+}
+
+#id_login::-ms-input-placeholder,
+#id_email::-ms-input-placeholder,
+#id_name::-ms-input-placeholder,
+#id_password::-ms-input-placeholder,
+#id_password1::-ms-input-placeholder,
+#id_password2::-ms-input-placeholder,
+#id_username::-ms-input-placeholder,
+#id_nickname::-ms-input-placeholder,
+#id_dob::-ms-input-placeholder,
+#id_gender::-ms-input-placeholder,
+#id_gender1::-ms-input-placeholder,
+#id_phnum::-ms-input-placeholder {
+  color: #777;
+  font-size: 16px;
+}
+
+#id_login::placeholder,
+#id_email::placeholder,
+#id_name::placeholder,
+#id_password::placeholder,
+#id_password1::placeholder,
+#id_password2::placeholder,
+#id_username::placeholder,
+#id_nickname::placeholder,
+#id_dob::placeholder,
+#id_gender::placeholder,
+#id_gender1::placeholder,
+#id_phnum::placeholder {
+  color: #777;
+  font-size: 16px;
+}
+
+.select {
+  padding: 15px 10px;
+}
+.select input[type=radio]{
+  display: none;
+}
+.select input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 90px;
+  border: 1px solid #333;
+  line-height: 24px;
+  text-align: center;
+  font-weight:bold;
+  font-size:13px;
+}
+.select input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+.select input[type=radio]:checked+label{
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-link {
+  background-color: #6b45cb;
+  border: none;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 16px;
+  width: 100%;
+}
+
+.btn-link.disabled {
+  background-color: #997ddc;
+}
+
+.btn-link {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.title {
+  color: #222;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  max-width: 656px;
+}
+
+.checkbox-div {
+  color: #777;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.43;
+  margin: 22px 0 24px 0;
+}
+
+.checkbox-div a {
+  color: grey;
+  text-decoration: underline;
+}
+
+.checkbox-div a.secondaryAction {
+  color: #6b45cb;
+  font-weight: 500;
+  float: right;
+  text-decoration: none;
+}
+
+.or-div {
+  color: #777;
+  font-size: 14px;
+  height: 90px;
+  line-height: 90px;
+  width: 100%;
+  position: relative;
+}
+
+.or-div span {
+  padding: 0 8px;
+  background: #ffffff;
+  z-index: 9;
+  position: relative;
+}
+
+.or-div div {
+  width: 100%;
+  height: 1px;
+  background: #ebebeb;
+  position: absolute;
+  top: 50%;
+}
+
+.icon-div {
+  position: relative;
+}
+
+.icon-div img {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+
+.icon-div1 {
+  position: relative;
+}
+
+.icon-div1 img {
+  position: absolute;
+  left: 18px;
+  top: 20px;
+  opacity: 0.5;
+  width: 20px;
+}
+
+.icon-div2 {
+  position: relative;
+}
+
+.icon-div2 img {
+  position: absolute;
+  left: 17px;
+  top: 19px;
+  width: 21px;
+  opacity: 0.6;
+}
+
+.already-have {
+  color: #777;
+  font-size: 14px;
+  margin: 40px 0 4px 0;
+}
+
+.link {
+  color: #6b45cb;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.link-14 {
+  color: #6b45cb;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Various account pages */
+.account-div {
+  text-align: left;
+}
+
+.account-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: #222;
+}
+
+.account-msg {
+  color: #777;
+  font-size: 14px;
+  margin: 16px 0 40px 0;
+}
+
+/* Password reset and email confirmation pages */
+.account-article {
+  border: solid 1px #ddd;
+  border-radius: 9px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 44px auto 0 auto;
+  max-width: 656px;
+  padding: 56px 80px;
+}
+
+.account-title {
+  color: #222;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  font-weight: 500;
+}
+
+.account-desc {
+  color: #777;
+  font-size: 14px;
+  margin: 16px 0 20px 0;
+}
+
+.account-article label {
+  display: none;
+}
+
+.error-page {
+  padding: 0;
+  min-height: initial;
+}
+
+.center-link {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: #6b45cb;
+  margin-top: 12px;
+}
+
+/* jq toast */
+.jq-toast-single {
+  font-size: 14px !important;
+}
+
+.jq-toast-wrap {
+  min-width: 360px;
+}
+â€‹ .jq-toast-wrap.bottom-right {
+  right: 72px;
+}
+â€‹ .jq-toast-single {
+  padding: 22px 24px;
+}
+â€‹ .close-jq-toast-single {
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .jq-toast-wrap.bottom-right {
+    right: auto;
+  }
+  .jq-toast-wrap {
+    width: 100%;
+    min-width: auto;
+  }
+  .jq-toast-single {
+    margin: 0 24px;
+    width: calc(100% - 96px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sign-article,
+  .account-div {
+    border: none;
+    padding: 20px 24px;
+    margin: 0;
+  }
+
+  .title {
+    font-size: 24px;
+    margin: 20px 0;
+    text-align: initial;
+  }
+
+  .mobile-footer-full {
+    margin-top: 48px;
+  }
+
+  /* Password reset and email confirmation pages */
+  .account-article {
+    border: none;
+    margin: 0 auto;
+    padding: 40px 24px 0px 24px;
+  }
+}
