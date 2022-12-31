@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @keyframes spinner{
     0% {transform:rotate(0deg)}
     100% {transform:rotate(360deg)}
@@ -49,7 +48,7 @@ html {
 
     /*navigation css*/
     *{padding:0; margin: 0; list-style: none;}
-    body {padding: 30px;}
+    body {padding: 0px;}
     .tab{padding: 30px;}
     .tab ul{display: flex; height:72px; border-bottom:1px solid rgb(242, 17, 76);}
     .tab ul li {flex:1;}
@@ -66,27 +65,6 @@ html {
     .tab ul li a.on:before {content: ""; position: absolute; left:-1px; top:-2px; width: 1px;
         height: 100%; background: rgb(242, 17, 76); border-top:2px solid rgb(242, 17, 76);}
 
-
-    /*  right comment는 아래 코드로 대체 */
-    /*   .right .comment {
-            display: block;
-            position: relative;
-            margin-top: 16px;
-            padding: 26px 24px;
-            background: rgb(250, 250, 250);
-        }
-
-            .top > right > comment {
-            width: 424px;
-            height: 135px;
-            background-color: #b9b9b9;
-        }
-
-        .top > right > comment > clamp {
-            width: 376px;
-            height: 652px;
-            color: gray;
-        }*/
     .right .comment {
         display: block;
         position: relative;
@@ -102,9 +80,6 @@ html {
         color: rgba(0, 0, 0, 0.87)
     }
 
-    /* 더보기
-     .right .comment button{position:absolute;top:24px;right:24px;background:none;border:none;font-size:16px;color:rgb(0,121,107)}
-     */
     .right .comment div {
         display: block;
         overflow: hidden;
@@ -130,24 +105,8 @@ html {
     .detail {
         width: 1024px;
 
-        /* background-color: aquamarine*/
     }
-    /*
-        div.tab {
-            width: 1024px;
-            height: 72px;
-       !*     background-color: bisque;*!
-            margin: 0 auto;
-            margin-top: 38px;
-            clear: both;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
 
-        div.tab > on {
-
-            height: 72px;
-        }*/
 
     div.tab > tab_review {
 
@@ -166,7 +125,6 @@ html {
     .comment > button {
         width: 41.48px;
         height: 19px;
-        /*        color: seagreen;*/
     }
 
     .right .info {
@@ -238,12 +196,6 @@ html {
         display: none
     }
 
-    /*  코멘트 주석 처리 한 이유가 뭐냐
-
-        .right .comment {
-            display: none
-        }*/
-    /*tab*/
     .tab {
         clear: both;
         overflow: hidden;
@@ -264,14 +216,6 @@ html {
         width: 33.4%
     }
 
-    /*  .tab .on {
-          border-bottom: 2px solid rgb(242, 17, 76);
-          font-weight: bold;
-          color: rgb(230, 28, 81);
-      }*/
-
-
-    /*detail.info*/
     .detail_info .btn_align {
         margin: 0 16px;
     }

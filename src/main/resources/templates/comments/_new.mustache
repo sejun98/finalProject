@@ -3,7 +3,7 @@
         <!-- 댓글 작성 폼 -->
         <form>
             <div class="mb-3">
-                <label class="form-label">닉네임</label>
+                <label class="form-label">제목</label>
                 <input class="form-control form-control-sm" id="new-comment-nickname">
             </div>
             <div class="mb-3">
@@ -12,9 +12,9 @@
             </div>
 
 <!--            히든 인풋 -->
-            {{#article}}
+            {{#place}}
                 <input type="hidden" id="new-comment-article-id" value="{{id}}">
-            {{/article}}
+            {{/place}}
 
 <!--            전송 버튼-->
             <button type="button" class="btn btn-outline-primary btn-sm" id="comment-create-btn">댓글 작성</button>

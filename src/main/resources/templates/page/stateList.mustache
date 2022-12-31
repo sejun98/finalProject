@@ -7,29 +7,28 @@
     <title>게시글리스트</title>
 </head>
 <body>
-    {{>layouts/header}}
+    {{>layouts/loginheader}}
 <main class="page">
     <article class="filter">
         <form action="/state/list" method="get">
             <center><h4 class="filter-header">지역별 검색</h4></center>
-            <input type="radio" name="searchKeyword" value="">전체<br>
-            <input type="radio" name="searchKeyword" value="seoul">서울<br>
-            <input type="radio" name="searchKeyword" value="busan">부산<br>
-            <input type="radio" name="searchKeyword" value="daegu">대구<br>
-            <input type="radio" name="searchKeyword" value="incheon">인천<br>
-            <input type="radio" name="searchKeyword" value="gwangju">광주<br>
-            <input type="radio" name="searchKeyword" value="daejeon">대전<br>
-            <input type="radio" name="searchKeyword" value="ulsan">울산<br>
-            <input type="radio" name="searchKeyword" value="gyeonggido">경기도<br>
-            <input type="radio" name="searchKeyword" value="gangwondo">강원도<br>
-            <input type="radio" name="searchKeyword" value="chungcheongbukdo">충청북도<br>
-            <input type="radio" name="searchKeyword" value="chungcheongnamdo">충청남도<br>
-            <input type="radio" name="searchKeyword" value="jeollabukdo">전라북도<br>
-            <input type="radio" name="searchKeyword" value="jeollanamdo">전라남도<br>
-            <input type="radio" name="searchKeyword" value="gyeongsangbukdo">경상북도<br>
-            <input type="radio" name="searchKeyword" value="gyeongsangnamdo">경상남도<br>
-            <input type="radio" name="searchKeyword" value="jejudo">제주도<br>
-            <input type="text" name="searchKeyword">
+            <input type="radio" name="searchKeyword2" value="">전체<br>
+            <input type="radio" name="searchKeyword2" value="seoul">서울<br>
+            <input type="radio" name="searchKeyword2" value="busan">부산<br>
+            <input type="radio" name="searchKeyword2" value="daegu">대구<br>
+            <input type="radio" name="searchKeyword2" value="incheon">인천<br>
+            <input type="radio" name="searchKeyword2" value="gwangju">광주<br>
+            <input type="radio" name="searchKeyword2" value="daejeon">대전<br>
+            <input type="radio" name="searchKeyword2" value="ulsan">울산<br>
+            <input type="radio" name="searchKeyword2" value="gyeonggido">경기도<br>
+            <input type="radio" name="searchKeyword2" value="gangwondo">강원도<br>
+            <input type="radio" name="searchKeyword2" value="chungcheongbukdo">충청북도<br>
+            <input type="radio" name="searchKeyword2" value="chungcheongnamdo">충청남도<br>
+            <input type="radio" name="searchKeyword2" value="jeollabukdo">전라북도<br>
+            <input type="radio" name="searchKeyword2" value="jeollanamdo">전라남도<br>
+            <input type="radio" name="searchKeyword2" value="gyeongsangbukdo">경상북도<br>
+            <input type="radio" name="searchKeyword2" value="gyeongsangnamdo">경상남도<br>
+            <input type="radio" name="searchKeyword2" value="jejudo">제주도<br>
             <center>
                 <button type="submit" style="width: 99% ; height:25px ; margin-bottom: 5px;">검색</button>
             </center>
@@ -38,7 +37,7 @@
 
     <article class="list_box">
         <section class="state_list">
-            {{#PlaceList}}
+                {{#list}}
             <a href="/state/{{id}}">
                 <div class="stateBox">
                     <tr>
@@ -50,8 +49,7 @@
                     </tr>
                 </div>
             </a>
-            <br>
-        {{/PlaceList}}
+                {{/list}}
         </section>
     </article>
     <footer style="text-align: right;">

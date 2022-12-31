@@ -1,25 +1,26 @@
 package com.example.firstproject.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor // 디폴트 생성자 어노테이션
 @ToString
 @Getter
+@Setter
+@Builder
+@NoArgsConstructor // 기본 생성자 어노테이션
+@AllArgsConstructor
 public class User {
-
+    //PK
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
+    private String username;
 
     @Column
     private String nickname;
@@ -29,4 +30,10 @@ public class User {
 
     @Column
     private String phnum;
+
+    @Column
+    private String role;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 }

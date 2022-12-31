@@ -9,18 +9,19 @@
 
 </head>
 <!--헤더-->
-{{>layouts/header}}
+{{>layouts/loginheader}}
 <!--바디-->
+{{#place}}
 <body class="pc">
 <div id="content" class="detail">
     <div class="top">
         <div class="left">
-            <img th:src="@{${board.filepath}}" />
+            <img src="{{filepath}}" />
         </div>
         <div class="right">
             <div class="info">
-                <h1 th:text="${board.titleplace}">제목</h1>
-                <p th:text="${board.address}">주소</p>
+                <h1 th:text="${board.titleplace}">{{titleplace}}</h1>
+                <p th:text="${board.address}">{{address}}</p>
                 <!--                <p th:text-="${board.}"></p>-->
                 <div class="benefit_wrap"></div>
             </div>
@@ -30,8 +31,7 @@
                 <!--<button>더보기</button>-->
                 <div class="clamp">
                     <!--<p th:text="${board.benefit}">사장님 한마디.</p>나중에 교체 -->
-                    도심 속 소나무로 둘러싸여 있으며 접근성이 좋은 캠핑장입니다<br>
-                    편리한 매점 시설, 개별 바비큐장 등 부대시설이 갖춰져 있습니다</div>
+                    {{benefit}}</div>
             </div>
         </div>
     </div>
@@ -52,12 +52,10 @@ document.querySelector('article').innerHTML = text;
     <article class="detail_info on">
         <!-- 기본 정보 -->
         <button type="button" id="default_info_tab" class="category on">
-            <span>기본 정보</span>
-            ::after
         </button>
         <section class="default_info" style="display: block;">
             <h3 style="margin-top: 20px; margin-bottom: 10px;">
-                추가 정보!
+                기본 정보!
             </h3>
             <p th:text="${board.content}">내용이 들어갈 부분</p>
 
@@ -81,10 +79,11 @@ document.querySelector('article').innerHTML = text;
 
             <!--구글 지도-->
             <h3>오시는 길</h3>
+            <center>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3175.1831021704793!2d126.93652271564224!3d37.26708494897779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b69cf4609d001%3A0x3e25badc0c11e6bd!2z6rK96riw64-EIOyImOybkOyLnCDqtozshKDqtawg6riI6rOh64-ZIDc4Ny0y!5e0!3m2!1sko!2skr!4v1669031091624!5m2!1sko!2skr"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+            </center>
 
 
         </section>
@@ -92,40 +91,27 @@ document.querySelector('article').innerHTML = text;
 </div>
 <article id="review" class="review on">
     <div class="score_top">
-        <strong>만족해요</strong>
-        <div class="score_wrap">
-            <div class="score_star star_40"></div>
-            <div class="num">th:text="${board.star_avg}" 나중에 추가</div>
-        </div>
-        <p>전체 리뷰
-            <b>4</b>  <!--review 갯수-->
-        </p>
+<!--        <strong>만족해요</strong>-->
+<!--        <div class="score_wrap">-->
+<!--            <div class="score_star star_40"></div>-->
+<!--            <div class="num">th:text="${board.star_avg}" 나중에 추가</div>-->
+<!--        </div>-->
+<!--        <p>전체 리뷰-->
+<!--            <b>4</b>  &lt;!&ndash;review 갯수&ndash;&gt;-->
+<!--        </p>-->
         <a href="/reviewwrite">리뷰 작성</a>
     </div>
     <ul>
         <li class="review_box">
-                    <span class="guest">
-                        <p class="pic">
-                            <img src="../static/files/css/ico_21.png" alt="${board.nickname_r}"></p>
-                        <span class="best_review">베스트 리뷰</span>
-                        <strong>여기만한 곳은 어디에도 없을 거예요.</strong>
-                        <div class="score_wrap_sm">
-                            <div class="score_star star_50"></div>
-                            <div class="num">10.0</div>
-                        </div>
-                        <div class="name"><b> 나중에 추가 th:text="${board.titleplace_r}" · </b>
-                            th:text="${board.nickname_r}"
-                        </div>
-                        <div class="txt">
-                            리뷰내용 코드 추가<br>
-                            th:text="${board.content_r}"
-                        </div> <!---->
-                        <span class="date">th:text="${board.time}"</span>
-                    </span>
+            {{>comments/_comments}}
+            {{#commentDtos}}
+
+            {{/commentDtos}}
         </li>
     </ul>
 </article>
 <a th:href="@{/state/delete(id=${board.id})}">글삭제</a>
 <a th:href="@{/state/modify/{id}(number=${board.id})}">수정</a>
+{{/place}}
 </body>
 </html>

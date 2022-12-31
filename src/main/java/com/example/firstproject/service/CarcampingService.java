@@ -28,8 +28,8 @@ public class CarcampingService {
 //    public Page<Place> stateSearchList(String searchKeyword, Pageable pageable){
 //        return placeRepository.findByThemeContaining(searchKeyword, pageable);
 //    }
-    public Page<Place> stateSearchList2(String searchKeyword, Pageable pageable){
-        return placeRepository.findByStateContaining(searchKeyword, pageable);
+    public Page<Place> stateSearchList2(String searchKeyword2, Pageable pageable){
+        return placeRepository.findByStateContaining(searchKeyword2, pageable);
     }
     //특정 게시글 불러오기
     public Place stateView(Long id){

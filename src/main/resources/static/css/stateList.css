@@ -1,12 +1,13 @@
 .page{
     width: 1440px;
+    margin-top : 15px;
     margin: 0 auto;
 }
 .filter{
     margin-right: 130px;
     width: 213px;
     position: fixed;
-    border-radius: 9px;
+    border-radius: 5px;
     border: 1px solid #c9c9c9;
     font-size: 19px;
 }
