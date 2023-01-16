@@ -23,4 +23,7 @@
     - 6)  결과/성과  : Spring Framework을 사용해서 서버 개발에 대한 많은 지식을 습득.
         - IDE : VsCode, Intellij
             
-            OS : MacOS
+            OS : MacOS, Window
+            
+- ERD
+![erd](https://user-images.githubusercontent.com/120090793/212575918-7a0fb6d8-5d2f-412f-8975-b5fc61b56fe6.png)
