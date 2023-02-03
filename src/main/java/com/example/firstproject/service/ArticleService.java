@@ -32,7 +32,7 @@ public class ArticleService {
 
     public Article create(ArticleForm dto) {
         Article article = dto.toEntity();
-        if (article.getId() != null) return null; // 기존에 아이디가 있을때 수정되지않기 위한 코드
+        if (article.getId() != null) return null;
         return articleRepository.save(article);
     }
 
@@ -44,8 +44,8 @@ public class ArticleService {
             log.info("잘못된 요청! id:{}, aricle : {}", id, article.toString());
             return null;
         }
-        // 4. 업데이트 및 정상 응답(200)
-        target.patch(article); // 새로 입력한 데이터가 null일 경우 기존 데이터를 삽입하는 메소드 추가
+        // 업데이트 및 정상 응답(200)
+        target.patch(article);
         Article updated =  articleRepository.save(target);
         return updated;
     }
