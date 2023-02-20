@@ -76,7 +76,7 @@ public class LoginController {
      */
     @PostMapping("join")
     public String join(User user, Model model) {
-        user.setRole("ROLE_ADMIN"); // 권한 정보는 임시로 ROLE_ADMIN으로 넣는다.
+        user.setRole("ROLE_USER"); // 권한 정보는 임시로 ROLE_ADMIN으로 넣는다.
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         model.addAttribute("msg","회원가입이 완료되었습니다");
