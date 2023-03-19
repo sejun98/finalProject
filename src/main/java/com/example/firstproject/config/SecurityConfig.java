@@ -25,8 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 // user 페이지 설정
-                .antMatchers("/state/**").authenticated() // 로그인 필요
-                .antMatchers("/loginindex").authenticated() // 로그인 필요
+                .antMatchers("/state/**").authenticated() // 로그인이 필요한 url설정
+                .antMatchers("/loginindex").authenticated() 
                 .antMatchers("/write").hasRole("ADMIN")
                 // 기타 url은 모두 허용
                 .anyRequest()
